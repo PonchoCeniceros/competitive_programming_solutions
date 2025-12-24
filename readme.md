@@ -1,4 +1,4 @@
-# Competitive Programming Solutions 🚀
+# Competitive Programming Solutions
 
 This repository contains my personal solutions to various competitive programming problems. I use this space to track my progress, improve my algorithmic thinking, and maintain a clean collection of implementations.
 
@@ -41,15 +41,6 @@ if __name__ == "__main__":
     solver = Solution()
     # print(solver.)
 
-```
-
-```
-## 📊 Progress Tracker
-
-| # | Problem Name | Difficulty | Solution |
-|---|--------------|------------|----------|
-| 3074 | Apple Distribution | Easy | [View Code](./exercises/3074_apple_distribution.py) |
-| ...  | ...          | ...        | ...      |
 ```
 
 ## 🎯 Goals
