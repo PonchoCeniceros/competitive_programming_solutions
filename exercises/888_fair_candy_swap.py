@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Set
 
 
 #
@@ -6,53 +6,33 @@ from typing import List
 #
 class Solution:
     def fairCandySwap(self, aliceSizes: List[int], bobSizes: List[int]) -> List[int]:
-        ans: List = []
-        xSum, ySum = sum(a for a in aliceSizes), sum(b for b in bobSizes)
+        xSum = sum(a for a in aliceSizes)
+        ySum = sum(b for b in bobSizes)
 
-        total = xSum + ySum
-        fair = total / 2
+        xBoxes: List = aliceSizes
+        yBoxes: Set = set(bobSizes)
 
-        x = fair - xSum
-        y = fair - ySum
-
-        print(f"total: {total}, distribucion: {fair}")
-        print(f"x := {x} = {fair} - {xSum}")
-        print(f"y := {y} = {fair} - {ySum}")
-
-        return ans
-
-        # xBoxes: List = []
-        # yBoxes: List = []
-        # ans: List = []
-        #
-        # priority = ""
-        # aLen, bLen = len(aliceSizes), len(bobSizes)
-        #
-        # if aLen == bLen:
-        #     priority = "alice"
-        #     xSum = sum(a for a in aliceSizes)
-        #     ySum = sum(b for b in bobSizes)
-        #     xBoxes = aliceSizes
-        #     yBoxes = bobSizes
-        #
-        # elif aLen < bLen:
-        #     priority = "alice"
-        #     xSum = sum(a for a in aliceSizes)
-        #     ySum = sum(b for b in bobSizes)
-        #     xBoxes = aliceSizes
-        #     yBoxes = bobSizes
-        # else:
-        #     priority = "bob"
-        #     xSum = sum(b for b in bobSizes)
-        #     ySum = sum(a for a in aliceSizes)
-        #     xBoxes = bobSizes
-        #     yBoxes = aliceSizes
+        # al principio desarrollé el algoritmo con O(n²):
         #
         # for x in xBoxes:
         #     for y in yBoxes:
         #         if (xSum - x + y) == (ySum - y + x):
         #             ans = [x, y] if priority == "alice" else [y, x]
-        # return ans
+        #
+        # ovbia/e dió LTE.
+        # entonces, asumimos que para que la igualdad
+        #
+        #        xSum - x + y = ySum - y + x
+        #
+        # sea correcta, debe existir un y que satisfaga una x
+        # iteramos sobre las x's y consultamos sobre las y's
+
+        for x in xBoxes:
+            y = int(x + (ySum - xSum) / 2)
+            if y in yBoxes:
+                return [x, y]
+
+        return []
 
 
 if __name__ == "__main__":
