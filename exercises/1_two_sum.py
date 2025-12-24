@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Dict
 
 
 #
@@ -6,24 +6,25 @@ from typing import List
 #
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        possibleNums = [{"x": x, "y": target - x, "i": i} for i, x in enumerate(nums)]
-        # possibleNums.sort(key=lambda x: x["y"], reverse=True)
+        x, y = 0, 0
+        # con los hashTable podemos hacer consultas en O(1),
+        # si la respuesta que buscamoas esta contenida en el
+        # mismo conjunto de información, podemos usar un hash
+        # map para auxiliarnos en consultar si dicha respuesta
+        # ya está en el conjunto previo que hemos revisado
+        hashTable: Dict = {}
 
-        print(possibleNums)
-        x, y, z = 0, 0, 0
-        flag = True
+        for i, x in enumerate(nums):
+            y = target - x
 
-        for n in possibleNums:
-            val = n.get("val", 0)
-            idx = n.get("idx", 0)
-            if flag:
-                z = val
-                x = idx
-                flag = False
-                continue
+            # necesito encontrar una y en mi hash table de x acumuladas,
+            # ya que alguna de esas x satisfarán x + y = target
+            if hashTable.get(y, None) is not None:
+                x, y = i, hashTable[y]
+                break
 
-            if val + z == target:
-                y = idx
+            # guardo la x para la siguiente y propuesta
+            hashTable[x] = i
 
         return [x, y]
 
