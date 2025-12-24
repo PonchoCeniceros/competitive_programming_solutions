@@ -6,9 +6,10 @@ from typing import List
 #
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        possibleNums = [{"val": target - n, "idx": i} for i, n in enumerate(nums)]
-        possibleNums.sort(key=lambda x: x["val"], reverse=True)
+        possibleNums = [{"x": x, "y": target - x, "i": i} for i, x in enumerate(nums)]
+        # possibleNums.sort(key=lambda x: x["y"], reverse=True)
 
+        print(possibleNums)
         x, y, z = 0, 0, 0
         flag = True
 
@@ -32,3 +33,4 @@ if __name__ == "__main__":
     print("✅", solver.twoSum(nums=[2, 7, 11, 15], target=9))
     print("✅", solver.twoSum(nums=[3, 2, 4], target=6))
     print("✅", solver.twoSum(nums=[3, 3], target=6))
+    print("✅", solver.twoSum(nums=[3, 2, 3], target=6))
