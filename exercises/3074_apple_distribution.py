@@ -8,7 +8,6 @@ class Solution:
     def minimumBoxes(self, apple: List[int], capacity: List[int]) -> int:
         remains = 0
         reassigments = 0
-
         capacity.sort(reverse=True)
 
         for a in apple:

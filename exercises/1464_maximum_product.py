@@ -6,8 +6,7 @@ from typing import List
 #
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        u, iu = -1, -1
-        v = -1
+        u, iu, v = -1, -1, -1
 
         for i, n in enumerate(nums):
             if n > u:
