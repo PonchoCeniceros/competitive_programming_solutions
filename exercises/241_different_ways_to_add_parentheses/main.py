@@ -21,10 +21,12 @@ class Solution:
                         )
             return ans
 
-        # procesar la entrada
+        # preprocesar la entrada
+        ops = ["+", "-", "*"]
         tokens = re.findall(r"(?:[1-9][0-9]|[0-9])|[+\-*]", expression)
-        E = [int(t) for t in tokens if t not in ["+", "-", "*"]]
-        Ops = [t for t in tokens if t in ["+", "-", "*"]]
+
+        E = [int(t) for t in tokens if t not in ops]
+        Ops = [t for t in tokens if t in ops]
 
         # implementacion de la funcion
         return E if len(E) == 1 else solver(E, Ops)
