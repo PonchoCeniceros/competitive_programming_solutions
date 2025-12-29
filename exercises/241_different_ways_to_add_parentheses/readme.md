@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Exercise 241
 
 ### Case 1
@@ -14,7 +15,6 @@
 
 ### Adjustment
 ![Adjustment](https://raw.githubusercontent.com/PonchoCeniceros/competitive_programming_solutions/main/exercises/241_different_ways_to_add_parentheses/imgs/adjustment.png)
-
 
 ### Memoization
 
@@ -81,4 +81,3 @@ def diffWaysToCompute(self, expression: str) -> List[int]:
     # implementacion de la funcion
     return list(E) if len(E) == 1 else solver(E, Ops)
 ```
-
