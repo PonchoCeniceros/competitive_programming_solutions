@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## Exercise 241
 
 ### Case 1
