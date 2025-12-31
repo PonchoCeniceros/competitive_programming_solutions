@@ -5,7 +5,22 @@ from typing import List, Optional, Dict
 # Exercise 2917
 #
 class Solution:
-    def findKOr(self, nums: List[int], k: int) -> int: ...
+    def findKOr(self, nums: List[int], k: int) -> int:
+        ans = 0
+
+        for i, y in enumerate(nums):
+            x = 0
+            n = y
+            while n > 0:
+                bit = n & 1
+                n >>= 1
+                x = x + 1 if bit == 1 else x
+
+            print(format(y, "08b"), x)
+            if x >= k:
+                ans = ans | (1 << i)
+
+        return ans
 
 
 if __name__ == "__main__":
