@@ -40,5 +40,5 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    print("✅", solver.fairCandySwap(aliceSizes=[1, 1], bobSizes=[2, 2]))
-    print("✅", solver.fairCandySwap(aliceSizes=[2], bobSizes=[1, 3]))
+    log.green(f"{solver.fairCandySwap(aliceSizes=[1, 1], bobSizes=[2, 2])}")
+    log.green(f"{solver.fairCandySwap(aliceSizes=[2], bobSizes=[1, 3])}")

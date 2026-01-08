@@ -25,5 +25,5 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    print("✅", solver.countBits(n=2))
-    print("✅", solver.countBits(n=5))
+    log.green(f"{solver.countBits(n=2)}")
+    log.green(f"{solver.countBits(n=5)}")

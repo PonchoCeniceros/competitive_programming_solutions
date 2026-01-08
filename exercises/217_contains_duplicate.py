@@ -23,6 +23,6 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    print("✅", solver.containsDuplicate(nums=[1, 2, 3, 1]))
-    print("✅", solver.containsDuplicate(nums=[1, 2, 3, 4]))
-    print("✅", solver.containsDuplicate(nums=[1, 1, 1, 3, 3, 4, 3, 2, 4, 2]))
+    log.green(f"{solver.containsDuplicate(nums=[1, 2, 3, 1])}")
+    log.green(f"{solver.containsDuplicate(nums=[1, 2, 3, 4])}")
+    log.green(f"{solver.containsDuplicate(nums=[1, 1, 1, 3, 3, 4, 3, 2, 4, 2])}")

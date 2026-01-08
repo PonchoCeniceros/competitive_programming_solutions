@@ -37,5 +37,7 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    print("✅", solver.minCostClimbingStairs(cost=[10, 15, 20]))
-    print("✅", solver.minCostClimbingStairs(cost=[1, 100, 1, 1, 1, 100, 1, 1, 100, 1]))
+    log.green(f"{solver.minCostClimbingStairs(cost=[10, 15, 20])}")
+    log.green(
+        f"{solver.minCostClimbingStairs(cost=[1, 100, 1, 1, 1, 100, 1, 1, 100, 1])}"
+    )

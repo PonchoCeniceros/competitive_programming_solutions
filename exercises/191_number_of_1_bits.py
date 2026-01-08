@@ -17,6 +17,6 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    print("✅", solver.hammingWeight(n=11))
-    print("✅", solver.hammingWeight(n=128))
-    print("✅", solver.hammingWeight(n=2147483645))
+    log.green(f"{solver.hammingWeight(n=11)}")
+    log.green(f"{solver.hammingWeight(n=128)}")
+    log.green(f"{solver.hammingWeight(n=2147483645)}")

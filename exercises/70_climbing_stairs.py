@@ -30,5 +30,5 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    print("✅", solver.climbStairs(n=2))
-    print("✅", solver.climbStairs(n=3))
+    log.green(f"{solver.climbStairs(n=2)}")
+    log.green(f"{solver.climbStairs(n=3)}")

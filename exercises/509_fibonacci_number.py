@@ -31,6 +31,6 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    print("✅", solver.fib(n=2))
-    print("✅", solver.fib(n=3))
-    print("✅", solver.fib(n=4))
+    log.green(f"{solver.fib(n=2)}")
+    log.green(f"{solver.fib(n=3)}")
+    log.green(f"{solver.fib(n=4)}")

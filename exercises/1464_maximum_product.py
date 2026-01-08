@@ -25,5 +25,5 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    print("✅", solver.maxProduct(nums=[3, 4, 5, 2]))
-    print("✅", solver.maxProduct(nums=[1, 5, 4, 5]))
+    log.green(f"{solver.maxProduct(nums=[3, 4, 5, 2])}")
+    log.green(f"{solver.maxProduct(nums=[1, 5, 4, 5])}")

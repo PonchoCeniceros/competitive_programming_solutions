@@ -37,6 +37,6 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    print("✅", solver.diffWaysToCompute(expression="11"))
-    print("✅", solver.diffWaysToCompute(expression="2-1-1"))
-    print("✅", solver.diffWaysToCompute(expression="2*3-4*5"))
+    log.green(f"{solver.diffWaysToCompute(expression='11')}")
+    log.green(f"{solver.diffWaysToCompute(expression='2-1-1')}")
+    log.green(f"{solver.diffWaysToCompute(expression='2*3-4*5')}")

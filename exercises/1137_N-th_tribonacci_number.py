@@ -28,4 +28,4 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    print("✅", solver.tribonacci(n=25))
+    log.green(f"{solver.tribonacci(n=25)}")
