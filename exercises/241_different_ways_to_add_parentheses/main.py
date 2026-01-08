@@ -1,5 +1,8 @@
 from typing import List
 import re
+from log import Log
+
+log = Log()
 
 
 #

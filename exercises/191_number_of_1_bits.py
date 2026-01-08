@@ -1,3 +1,8 @@
+from log import Log
+
+log = Log()
+
+
 #
 # Exercise 191
 #

@@ -1,4 +1,7 @@
 from typing import Dict
+from log import Log
+
+log = Log()
 
 
 #

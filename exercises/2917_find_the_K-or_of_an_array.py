@@ -1,4 +1,7 @@
-from typing import List, Optional, Dict
+from typing import List
+from log import Log
+
+log = Log()
 
 
 #
@@ -6,31 +9,23 @@ from typing import List, Optional, Dict
 #
 class Solution:
     def findKOr(self, nums: List[int], k: int) -> int:
-        n = nums[0]
-        while n > 0:
-            bit = n & 1
-            print(bit)
-            n >>= 1
-        return 0
+        answ = 0
+        mask = 1
+
+        for _ in range(32):
+            cnt = 0
+            for n in nums:
+                bit = n & mask
+                cnt = cnt + 1 if bit > 0 else cnt
+            if cnt >= k:
+                answ += mask
+
+            mask <<= 1
+        return answ
 
 
 if __name__ == "__main__":
     solver = Solution()
-    print("✅", solver.findKOr(nums=[7, 12, 9, 8, 9, 15], k=4))
-    print("✅", solver.findKOr(nums=[2, 12, 1, 11, 4, 5], k=6))
-
-    # ans = 0
-    #
-    # for i, y in enumerate(nums):
-    #     x = 0
-    #     n = y
-    #     while n > 0:
-    #         bit = n & 1
-    #         n >>= 1
-    #         x = x + 1 if bit == 1 else x
-    #
-    #     print(format(y, "08b"), x)
-    #     if x >= k:
-    #         ans = ans | (1 << i)
-    #
-    # return ans
+    log.green(f"{solver.findKOr(nums=[7, 12, 9, 8, 9, 15], k=4)}")
+    log.green(f"{solver.findKOr(nums=[2, 12, 1, 11, 4, 5], k=6)}")
+    log.green(f"{solver.findKOr(nums=[10, 8, 5, 9, 11, 6, 8], k=1)}")
