@@ -21,9 +21,7 @@ NUMBER=$(echo "$BASE_NAME" | grep -oE '^[0-9]+')
 # 4. Create the file and add the template code
 cat <<EOF >"$FILE_PATH"
 from typing import List, Optional, Dict
-from log import Log
-
-log = Log()
+from ..log import Log
 
 
 #
@@ -33,7 +31,7 @@ log = Log()
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver}")
+    Log.green(f"{solver}")
 EOF
 
 echo "✅ File successfully created at: $FILE_PATH"
