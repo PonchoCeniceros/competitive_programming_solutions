@@ -33,9 +33,7 @@ I use a Bash script to automate the creation of new solution files. This ensures
 
 The script will automatically create a file inside exercises/ with the following boilerplate:
 ```python
-from log import Log
-
-log = Log()
+from ..log import Log
 
 #
 # Exercise ...
@@ -43,7 +41,7 @@ log = Log()
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver}")
+    Log.green(f"{solver}")
 ```
 
 ## 🎯 Goals
