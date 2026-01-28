@@ -1,8 +1,6 @@
 from typing import List, Dict
 from log import Log
 
-log = Log()
-
 
 #
 # Exercise 1
@@ -34,7 +32,7 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver.twoSum(nums=[2, 7, 11, 15], target=9)}")
-    log.green(f"{solver.twoSum(nums=[3, 2, 4], target=6)}")
-    log.green(f"{solver.twoSum(nums=[3, 3], target=6)}")
-    log.green(f"{solver.twoSum(nums=[3, 2, 3], target=6)}")
+    Log.green(f"{solver.twoSum(nums=[2, 7, 11, 15], target=9)}")
+    Log.green(f"{solver.twoSum(nums=[3, 2, 4], target=6)}")
+    Log.green(f"{solver.twoSum(nums=[3, 3], target=6)}")
+    Log.green(f"{solver.twoSum(nums=[3, 2, 3], target=6)}")

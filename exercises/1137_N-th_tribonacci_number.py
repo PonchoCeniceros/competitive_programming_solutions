@@ -1,8 +1,6 @@
 from typing import Dict
 from log import Log
 
-log = Log()
-
 
 #
 # Exercise 1137
@@ -28,4 +26,4 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver.tribonacci(n=25)}")
+    Log.green(f"{solver.tribonacci(n=25)}")

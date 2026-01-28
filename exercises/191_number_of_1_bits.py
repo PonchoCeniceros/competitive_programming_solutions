@@ -1,7 +1,5 @@
 from log import Log
 
-log = Log()
-
 
 #
 # Exercise 191
@@ -17,6 +15,6 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver.hammingWeight(n=11)}")
-    log.green(f"{solver.hammingWeight(n=128)}")
-    log.green(f"{solver.hammingWeight(n=2147483645)}")
+    Log.green(f"{solver.hammingWeight(n=11)}")
+    Log.green(f"{solver.hammingWeight(n=128)}")
+    Log.green(f"{solver.hammingWeight(n=2147483645)}")

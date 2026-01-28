@@ -2,8 +2,6 @@ from typing import List
 import re
 from log import Log
 
-log = Log()
-
 
 #
 # Exercise 241
@@ -37,6 +35,6 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver.diffWaysToCompute(expression='11')}")
-    log.green(f"{solver.diffWaysToCompute(expression='2-1-1')}")
-    log.green(f"{solver.diffWaysToCompute(expression='2*3-4*5')}")
+    Log.green(f"{solver.diffWaysToCompute(expression='11')}")
+    Log.green(f"{solver.diffWaysToCompute(expression='2-1-1')}")
+    Log.green(f"{solver.diffWaysToCompute(expression='2*3-4*5')}")

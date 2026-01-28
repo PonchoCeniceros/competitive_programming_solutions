@@ -1,8 +1,6 @@
 from typing import List, Set
 from log import Log
 
-log = Log()
-
 
 #
 # Exercise 888
@@ -40,5 +38,5 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver.fairCandySwap(aliceSizes=[1, 1], bobSizes=[2, 2])}")
-    log.green(f"{solver.fairCandySwap(aliceSizes=[2], bobSizes=[1, 3])}")
+    Log.green(f"{solver.fairCandySwap(aliceSizes=[1, 1], bobSizes=[2, 2])}")
+    Log.green(f"{solver.fairCandySwap(aliceSizes=[2], bobSizes=[1, 3])}")

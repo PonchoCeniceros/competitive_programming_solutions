@@ -1,8 +1,6 @@
 from typing import List, Set
 from log import Log
 
-log = Log()
-
 
 #
 # Exercise 26

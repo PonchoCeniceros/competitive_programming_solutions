@@ -1,8 +1,6 @@
 from typing import List
 from log import Log
 
-log = Log()
-
 
 #
 # Exercise 1464
@@ -25,5 +23,5 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver.maxProduct(nums=[3, 4, 5, 2])}")
-    log.green(f"{solver.maxProduct(nums=[1, 5, 4, 5])}")
+    Log.green(f"{solver.maxProduct(nums=[3, 4, 5, 2])}")
+    Log.green(f"{solver.maxProduct(nums=[1, 5, 4, 5])}")

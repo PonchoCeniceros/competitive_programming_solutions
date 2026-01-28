@@ -1,8 +1,6 @@
 from typing import List
 from log import Log
 
-log = Log()
-
 
 #
 # Exercise 338
@@ -25,5 +23,5 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver.countBits(n=2)}")
-    log.green(f"{solver.countBits(n=5)}")
+    Log.green(f"{solver.countBits(n=2)}")
+    Log.green(f"{solver.countBits(n=5)}")

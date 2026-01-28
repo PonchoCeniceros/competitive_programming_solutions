@@ -1,8 +1,6 @@
 from typing import Dict
 from log import Log
 
-log = Log()
-
 
 #
 # Exercise 70
@@ -30,5 +28,5 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver.climbStairs(n=2)}")
-    log.green(f"{solver.climbStairs(n=3)}")
+    Log.green(f"{solver.climbStairs(n=2)}")
+    Log.green(f"{solver.climbStairs(n=3)}")

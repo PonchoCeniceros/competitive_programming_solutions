@@ -1,8 +1,6 @@
 from typing import List, Dict
 from log import Log
 
-log = Log()
-
 
 #
 # Exercise 746
@@ -37,7 +35,7 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver.minCostClimbingStairs(cost=[10, 15, 20])}")
-    log.green(
+    Log.green(f"{solver.minCostClimbingStairs(cost=[10, 15, 20])}")
+    Log.green(
         f"{solver.minCostClimbingStairs(cost=[1, 100, 1, 1, 1, 100, 1, 1, 100, 1])}"
     )

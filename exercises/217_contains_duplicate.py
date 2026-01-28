@@ -1,8 +1,6 @@
 from typing import List, Dict
 from log import Log
 
-log = Log()
-
 
 #
 # Exercise 217
@@ -23,6 +21,6 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver.containsDuplicate(nums=[1, 2, 3, 1])}")
-    log.green(f"{solver.containsDuplicate(nums=[1, 2, 3, 4])}")
-    log.green(f"{solver.containsDuplicate(nums=[1, 1, 1, 3, 3, 4, 3, 2, 4, 2])}")
+    Log.green(f"{solver.containsDuplicate(nums=[1, 2, 3, 1])}")
+    Log.green(f"{solver.containsDuplicate(nums=[1, 2, 3, 4])}")
+    Log.green(f"{solver.containsDuplicate(nums=[1, 1, 1, 3, 3, 4, 3, 2, 4, 2])}")

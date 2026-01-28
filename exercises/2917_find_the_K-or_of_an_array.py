@@ -1,8 +1,6 @@
 from typing import List
 from log import Log
 
-log = Log()
-
 
 #
 # Exercise 2917
@@ -26,6 +24,6 @@ class Solution:
 
 if __name__ == "__main__":
     solver = Solution()
-    log.green(f"{solver.findKOr(nums=[7, 12, 9, 8, 9, 15], k=4)}")
-    log.green(f"{solver.findKOr(nums=[2, 12, 1, 11, 4, 5], k=6)}")
-    log.green(f"{solver.findKOr(nums=[10, 8, 5, 9, 11, 6, 8], k=1)}")
+    Log.green(f"{solver.findKOr(nums=[7, 12, 9, 8, 9, 15], k=4)}")
+    Log.green(f"{solver.findKOr(nums=[2, 12, 1, 11, 4, 5], k=6)}")
+    Log.green(f"{solver.findKOr(nums=[10, 8, 5, 9, 11, 6, 8], k=1)}")
