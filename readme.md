@@ -33,7 +33,7 @@ I use a Bash script to automate the creation of new solution files. This ensures
 
 The script will automatically create a file inside exercises/ with the following boilerplate:
 ```python
-from ..log import Log
+from log import Log
 
 #
 # Exercise ...
@@ -45,6 +45,4 @@ if __name__ == "__main__":
 ```
 
 ## 🎯 Goals
-- [ ] Complete the "Top Interview 150" list.
-- [ ] Understand and implement Graph algorithms (BFS/DFS/Dijkstra).
 - [ ] Reach 50+ solved problems.

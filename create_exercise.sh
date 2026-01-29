@@ -21,7 +21,7 @@ NUMBER=$(echo "$BASE_NAME" | grep -oE '^[0-9]+')
 # 4. Create the file and add the template code
 cat <<EOF >"$FILE_PATH"
 from typing import List, Optional, Dict
-from ..log import Log
+from log import Log
 
 
 #
