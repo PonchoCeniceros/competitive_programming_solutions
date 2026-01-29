@@ -1,6 +1,6 @@
 from typing import List
 import re
-from ..log import Log
+from log import Log
 
 
 #

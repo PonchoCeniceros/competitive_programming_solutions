@@ -1,5 +1,5 @@
 from typing import List, Dict
-from ..log import Log
+from log import Log
 
 
 #

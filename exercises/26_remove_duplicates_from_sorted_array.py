@@ -1,5 +1,5 @@
 from typing import List, Set
-from ..log import Log
+from log import Log
 
 
 #
