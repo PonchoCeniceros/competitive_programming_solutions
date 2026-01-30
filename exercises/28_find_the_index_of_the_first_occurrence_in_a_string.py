@@ -1,49 +1,34 @@
-#!/bin/bash
-
-if [ -z "$1" ]; then
-  echo "Usage: ./create_exercise.sh <exercise_name>"
-  exit 1
-fi
-
-DIRECTORY="exercises"
-BASE_NAME=$1
-FILE_PATH="${DIRECTORY}/${BASE_NAME}.py"
-NUMBER=$(echo "$BASE_NAME" | grep -oE '^[0-9]+')
-
-mkdir -p "$DIRECTORY"
-
-cat <<EOF >"$FILE_PATH"
 from typing import List, Optional, Dict
 from log import Log
 import unittest
 
 
-# Exercise ${NUMBER:-"N/A"}
-class Solution: ...
+# Exercise 28
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int: ...
 
 
 class TestSolution(unittest.TestCase):
     def setUp(self):
         self.sol = Solution()
         self.target = (
-            self.sol  # [metodo a evaluar]
+            self.sol.strStr  # [metodo a evaluar]
         )
 
     def test_cases(self):
         Log.teal("Running tests...")
         cases = [
             # Estructura: (input, expected_output)
+            (("sadbutsad", "sad"), 0),
+            (("leetcode", "leeto"), -1),
         ]
 
         for i, (input_data, expected) in enumerate(cases):
             with self.subTest(f"Case {i + 1}"):
                 # Si el método tiene múltiples argumentos,
                 # usa: self.target(*input_data)
-                self.assertEqual(self.target(input_data), expected)
+                self.assertEqual(self.target(*input_data), expected)
 
 
 if __name__ == "__main__":
     unittest.main()
-EOF
-
-echo "✅ Ready for TDD at: $FILE_PATH"
