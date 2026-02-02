@@ -2,16 +2,13 @@
 
 This repository contains my personal solutions to various competitive programming problems. I use this space to track my progress, improve my algorithmic thinking, and maintain a clean collection of implementations.
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
-![LeetCode](https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black)
-![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)![LeetCode](https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black)
 
 ---
 
 ## 📂 Project Structure
 
-All solutions are stored in the `codes/` directory with a simplified naming convention using only the problem ID. The `exercises/` directory contains previous implementations.
-
+All solutions are stored in the `codes/` directory with a simplified naming convention using only the problem ID.
 ```
 .
 ├── codes/                # Current Python solution files (pytest format)
@@ -21,7 +18,6 @@ All solutions are stored in the `codes/` directory with a simplified naming conv
 │   ├── 28.py             # Find the Index of the First Occurrence in a String
 │   ├── 70.py             # Climbing Stairs
 │   └── ...
-├── exercises/            # Previous implementations
 ├── utils/                # Utilities
 ├── create.sh             # Automation script for creating new exercises
 └── README.md             # Documentation
