@@ -1,9 +1,10 @@
+import pytest
 from typing import List, Dict
-from log import Log
+from utils.log import Log
 
 
 #
-# Exercise 217
+# Exercise Contains Duplicate
 #
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
@@ -19,8 +20,17 @@ class Solution:
         return False
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver.containsDuplicate(nums=[1, 2, 3, 1])}")
-    Log.green(f"{solver.containsDuplicate(nums=[1, 2, 3, 4])}")
-    Log.green(f"{solver.containsDuplicate(nums=[1, 1, 1, 3, 3, 4, 3, 2, 4, 2])}")
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    "nums, expected",
+    [
+        ([1, 2, 3, 1], True),
+        ([1, 2, 3, 4], False),
+        ([1, 1, 1, 3, 3, 4, 3, 2, 4, 2], True),
+    ],
+)
+def test_containsDuplicate(nums, expected):
+    sol = Solution()
+    assert sol.containsDuplicate(nums) == expected

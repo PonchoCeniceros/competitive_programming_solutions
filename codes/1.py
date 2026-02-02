@@ -1,9 +1,10 @@
+import pytest
 from typing import List, Dict
-from log import Log
+from utils.log import Log
 
 
 #
-# Exercise 1
+# Exercise Two Sum
 #
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
@@ -30,9 +31,19 @@ class Solution:
         return [x, y]
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver.twoSum(nums=[2, 7, 11, 15], target=9)}")
-    Log.green(f"{solver.twoSum(nums=[3, 2, 4], target=6)}")
-    Log.green(f"{solver.twoSum(nums=[3, 3], target=6)}")
-    Log.green(f"{solver.twoSum(nums=[3, 2, 3], target=6)}")
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    "nums, target, expected",
+    [
+        ([2, 7, 11, 15], 9, [1, 0]),
+        ([3, 2, 4], 6, [2, 1]),
+        ([3, 3], 6, [1, 0]),
+        ([3, 2, 3], 6, [2, 0]),
+    ],
+)
+def test_twoSum(nums, target, expected):
+    sol = Solution()
+    result = sol.twoSum(nums, target)
+    assert sorted(result) == sorted(expected)

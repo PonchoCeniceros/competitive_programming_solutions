@@ -1,9 +1,10 @@
+import pytest
 from typing import List, Set
-from log import Log
+from utils.log import Log
 
 
 #
-# Exercise 26
+# Exercise Remove Duplicates from Sorted Array
 #
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
@@ -22,15 +23,20 @@ class Solution:
         nums[:] = arr
         return len(nums)
 
-    def test(self, nums: List[int], expectedNums: List[int]) -> None:
-        k = self.removeDuplicates(nums)
-        assert k == len(expectedNums)
 
-        for i in range(k):
-            assert nums[i] == expectedNums[i]
+# Unit tests
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    solver.test(nums=[1, 1, 2], expectedNums=[1, 2])
-    solver.test(nums=[0, 0, 1, 1, 1, 2, 2, 3, 3, 4], expectedNums=[0, 1, 2, 3, 4])
+@pytest.mark.parametrize(
+    "nums, expectedNums, expectedK",
+    [
+        ([1, 1, 2], [1, 2], 2),
+        ([0, 0, 1, 1, 1, 2, 2, 3, 3, 4], [0, 1, 2, 3, 4], 5),
+    ],
+)
+def test_removeDuplicates(nums, expectedNums, expectedK):
+    sol = Solution()
+    k = sol.removeDuplicates(nums)
+    assert k == expectedK
+    for i in range(k):
+        assert nums[i] == expectedNums[i]

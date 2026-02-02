@@ -1,9 +1,10 @@
+import pytest
 from typing import Dict
-from log import Log
+from utils.log import Log
 
 
 #
-# Exercise 509
+# Exercise Fibonacci Number
 #
 class Solution:
     memo: Dict = {}
@@ -27,8 +28,19 @@ class Solution:
         return self.memo[n]
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver.fib(n=2)}")
-    Log.green(f"{solver.fib(n=3)}")
-    Log.green(f"{solver.fib(n=4)}")
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    "n, expected",
+    [
+        (2, 1),
+        (3, 2),
+        (4, 3),
+        (0, 0),
+        (1, 1),
+    ],
+)
+def test_fib(n, expected):
+    sol = Solution()
+    assert sol.fib(n) == expected

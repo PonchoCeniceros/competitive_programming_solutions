@@ -1,9 +1,10 @@
+import pytest
 from typing import List
-from log import Log
+from utils.log import Log
 
 
 #
-# Exercise 1464
+# Exercise Maximum Product of Two Elements in an Array
 #
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
@@ -21,7 +22,17 @@ class Solution:
         return (u - 1) * (v - 1)
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver.maxProduct(nums=[3, 4, 5, 2])}")
-    Log.green(f"{solver.maxProduct(nums=[1, 5, 4, 5])}")
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    "nums, expected",
+    [
+        ([3, 4, 5, 2], 12),
+        ([1, 5, 4, 5], 16),
+        ([3, 7], 12),
+    ],
+)
+def test_maxProduct(nums, expected):
+    sol = Solution()
+    assert sol.maxProduct(nums) == expected

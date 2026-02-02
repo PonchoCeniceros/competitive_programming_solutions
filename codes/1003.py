@@ -1,10 +1,11 @@
+import pytest
 from typing import List
-from log import Log
+from utils.log import Log
 import re
 
 
 #
-# Exercise 1003
+# Exercise Check if Word Is Valid After Substitutions
 #
 class Solution:
     #
@@ -52,8 +53,17 @@ class Solution:
         return not S
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver.isValid(s='aabcbc')}")
-    Log.green(f"{solver.isValid(s='abcabcababcc')}")
-    Log.green(f"{solver.isValid(s='abccba')}")
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    "s, expected",
+    [
+        ("aabcbc", True),
+        ("abcabcababcc", True),
+        ("abccba", False),
+    ],
+)
+def test_isValid(s, expected):
+    sol = Solution()
+    assert sol.isValid(s) == expected
