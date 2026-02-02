@@ -1,9 +1,10 @@
+import pytest
 from typing import Dict
-from log import Log
+from utils.log import Log
 
 
 #
-# Exercise 70
+# Exercise Climbing Stairs
 #
 class Solution:
     memo: Dict = {}
@@ -26,7 +27,18 @@ class Solution:
         return self.memo[n]
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver.climbStairs(n=2)}")
-    Log.green(f"{solver.climbStairs(n=3)}")
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    "n, expected",
+    [
+        (2, 2),
+        (3, 3),
+        (1, 1),
+        (4, 5),
+    ],
+)
+def test_climbStairs(n, expected):
+    sol = Solution()
+    assert sol.climbStairs(n) == expected

@@ -1,9 +1,10 @@
+import pytest
 from typing import List, Dict
-from log import Log
+from utils.log import Log
 
 
 #
-# Exercise 746
+# Exercise Min Cost Climbing Stairs
 #
 class Solution:
     memo: Dict = {}
@@ -33,9 +34,16 @@ class Solution:
         return ans
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver.minCostClimbingStairs(cost=[10, 15, 20])}")
-    Log.green(
-        f"{solver.minCostClimbingStairs(cost=[1, 100, 1, 1, 1, 100, 1, 1, 100, 1])}"
-    )
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    "cost, expected",
+    [
+        ([10, 15, 20], 15),
+        ([1, 100, 1, 1, 1, 100, 1, 1, 100, 1], 6),
+    ],
+)
+def test_minCostClimbingStairs(cost, expected):
+    sol = Solution()
+    assert sol.minCostClimbingStairs(cost) == expected

@@ -4,45 +4,119 @@ This repository contains my personal solutions to various competitive programmin
 
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 ![LeetCode](https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black)
+![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
 
 ---
 
 ## 📂 Project Structure
 
-All solutions are stored in the exercises/ directory and are named following the convention ID_problem_name.py.
+All solutions are stored in the `codes/` directory with a simplified naming convention using only the problem ID. The `exercises/` directory contains previous implementations.
 
 ```
 .
-├── exercises/              # Python solution files
-├── create_exercise.sh      # Automation script
-└── README.md               # Documentation
+├── codes/                # Current Python solution files (pytest format)
+│   ├── 1.py              # Two Sum
+│   ├── 20.py             # Valid Parentheses
+│   ├── 26.py             # Remove Duplicates from Sorted Array
+│   ├── 28.py             # Find the Index of the First Occurrence in a String
+│   ├── 70.py             # Climbing Stairs
+│   └── ...
+├── exercises/            # Previous implementations
+├── utils/                # Utilities
+├── create.sh             # Automation script for creating new exercises
+└── README.md             # Documentation
 ```
 
+---
+
+## 🧪 Testing Framework
+
+All solutions use **pytest** with parametrized tests for comprehensive testing:
+
+```python
+# Unit tests
+
+@pytest.mark.parametrize(
+    "input_params, expected_output",
+    [
+        (input1, expected1),
+        (input2, expected2),
+        (input3, expected3),
+    ],
+)
+def test_solution_function(input_params, expected_output):
+    sol = Solution()
+    assert sol.method(input_params) == expected_output
+```
+
+### Running Tests
+
+```bash
+# Run all tests
+pytest codes/
+
+# Run specific test
+pytest codes/1.py
+
+# Run with verbose output
+pytest codes/ -v
+```
+
+---
 
 ## 🛠️ Automation
 
-I use a Bash script to automate the creation of new solution files. This ensures a consistent template and saves time.
+I use a Bash script to automate the creation of new solution files with the updated pytest template.
 
 ### How to use it:
 
 1. Give execution permissions (only needed once):
-    `chmod +x create_exercise.sh`
+    ```bash
+    chmod +x create.sh
+    ```
 
-2. Generate a new exercise file:
-   `./create_exercise.sh 3074_apple_distribution`
+2. Generate a new exercise file (LeetCode format):
+    ```bash
+    ./create.sh "9. Palindrome Number"
+    ./create.sh "125 Valid Palindrome"
+    ```
 
-The script will automatically create a file inside exercises/ with the following boilerplate:
+The script will automatically create a file inside `codes/` with the following boilerplate:
 ```python
-from log import Log
+import pytest
+from typing import List, Optional, Dict
+from utils.log import Log
+
 
 #
-# Exercise ...
+# Exercise Problem Name
 #
+class Solution:
+    # [Implement your solution here]
+    ...
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver}")
+
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    # [Add your parameters here]
+    "",
+    [
+        # [Add your test cases here]
+    ],
+)
+def test_# [test_function_name](# [parameters]):
+    sol = Solution()
+    assert sol.# [method_name](# [arguments]) == # [expected]
 ```
 
-## 🎯 Goals
-- [ ] Reach 50+ solved problems.
+### Features
+
+- ✅ **Modern pytest framework** with parametrized tests
+- ✅ **Type hints** for better code documentation
+- ✅ **Simplified naming** (e.g., `9.py` instead of `9_palindrome_number.py`)
+- ✅ **Full problem names** in exercise comments
+- ✅ **Standardized logging** with `utils.log`
+
+---

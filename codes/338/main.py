@@ -1,9 +1,10 @@
+import pytest
 from typing import List
-from log import Log
+from utils.log import Log
 
 
 #
-# Exercise 338
+# Exercise Counting Bits
 #
 class Solution:
     def count(self, n: int) -> int:
@@ -21,7 +22,16 @@ class Solution:
         return ans
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver.countBits(n=2)}")
-    Log.green(f"{solver.countBits(n=5)}")
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    "n, expected",
+    [
+        (2, [0, 1, 1]),
+        (5, [0, 1, 1, 2, 1, 2]),
+    ],
+)
+def test_countBits(n, expected):
+    sol = Solution()
+    assert sol.countBits(n) == expected

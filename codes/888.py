@@ -1,9 +1,10 @@
+import pytest
 from typing import List, Set
-from log import Log
+from utils.log import Log
 
 
 #
-# Exercise 888
+# Exercise Fair Candy Swap
 #
 class Solution:
     def fairCandySwap(self, aliceSizes: List[int], bobSizes: List[int]) -> List[int]:
@@ -36,7 +37,17 @@ class Solution:
         return []
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver.fairCandySwap(aliceSizes=[1, 1], bobSizes=[2, 2])}")
-    Log.green(f"{solver.fairCandySwap(aliceSizes=[2], bobSizes=[1, 3])}")
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    "aliceSizes, bobSizes, expected",
+    [
+        ([1, 1], [2, 2], [1, 2]),
+        ([2], [1, 3], [2, 1]),
+    ],
+)
+def test_fairCandySwap(aliceSizes, bobSizes, expected):
+    sol = Solution()
+    result = sol.fairCandySwap(aliceSizes, bobSizes)
+    assert sorted(result) == sorted(expected)

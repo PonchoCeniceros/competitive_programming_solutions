@@ -1,16 +1,17 @@
+import pytest
 from typing import List
-from log import Log
+from utils.log import Log
 
 
 #
-# Exercise 20
+# Exercise Valid Parentheses
 #
 class Solution:
     def isValid(self, s: str) -> bool:
         stack: List = []
 
         # if we start the string with an close tag, fail
-        if s[0] == ")" or s[0] == "]" or s[0] == "}":
+        if s and (s[0] == ")" or s[0] == "]" or s[0] == "}"):
             return False
 
         for i in s:
@@ -36,12 +37,21 @@ class Solution:
         return len(stack) == 0
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver.isValid(s='()')}")
-    Log.green(f"{solver.isValid(s='()[]{}')}")
-    Log.green(f"{solver.isValid(s='(]')}")
-    Log.green(f"{solver.isValid(s='([])')}")
-    Log.green(f"{solver.isValid(s='([)]')}")
-    Log.green(f"{solver.isValid(s='(){}}{')}")
-    Log.green(f"{solver.isValid(s='(])')}")
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    "s, expected",
+    [
+        ("()", True),
+        ("()[]{}", True),
+        ("(]", False),
+        ("([])", True),
+        ("([)]", False),
+        ("(){}}{", False),
+        ("(])", False),
+    ],
+)
+def test_isValid(s, expected):
+    sol = Solution()
+    assert sol.isValid(s) == expected

@@ -1,10 +1,11 @@
+import pytest
 from typing import List
 import re
-from log import Log
+from utils.log import Log
 
 
 #
-# Exercise 241
+# Exercise Different Ways to Add Parentheses
 #
 class Solution:
     def diffWaysToCompute(self, expression: str) -> List[int]:
@@ -33,8 +34,18 @@ class Solution:
         return E if len(E) == 1 else solver(E, Ops)
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver.diffWaysToCompute(expression='11')}")
-    Log.green(f"{solver.diffWaysToCompute(expression='2-1-1')}")
-    Log.green(f"{solver.diffWaysToCompute(expression='2*3-4*5')}")
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    "expression, expected",
+    [
+        ("11", [11]),
+        ("2-1-1", [0, 2]),
+        ("2*3-4*5", [-34, -14, -10, -10, 10]),
+    ],
+)
+def test_diffWaysToCompute(expression, expected):
+    sol = Solution()
+    result = sol.diffWaysToCompute(expression)
+    assert sorted(result) == sorted(expected)

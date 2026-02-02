@@ -1,9 +1,10 @@
+import pytest
 from typing import List
-from log import Log
+from utils.log import Log
 
 
 #
-# Exercise 2917
+# Exercise Find the K-or of an Array
 #
 class Solution:
     def findKOr(self, nums: List[int], k: int) -> int:
@@ -22,8 +23,17 @@ class Solution:
         return answ
 
 
-if __name__ == "__main__":
-    solver = Solution()
-    Log.green(f"{solver.findKOr(nums=[7, 12, 9, 8, 9, 15], k=4)}")
-    Log.green(f"{solver.findKOr(nums=[2, 12, 1, 11, 4, 5], k=6)}")
-    Log.green(f"{solver.findKOr(nums=[10, 8, 5, 9, 11, 6, 8], k=1)}")
+# Unit tests
+
+
+@pytest.mark.parametrize(
+    "nums, k, expected",
+    [
+        ([7, 12, 9, 8, 9, 15], 4, 9),
+        ([2, 12, 1, 11, 4, 5], 6, 0),
+        ([10, 8, 5, 9, 11, 6, 8], 1, 15),
+    ],
+)
+def test_findKOr(nums, k, expected):
+    sol = Solution()
+    assert sol.findKOr(nums, k) == expected
