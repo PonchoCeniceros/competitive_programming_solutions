@@ -14,7 +14,17 @@ class Solution:
         lens = [len(arr) for arr in strs]
         minLen = min(lens)
 
-        Log.teal(f"{minLen}")
+        ans = ""
+        bfr = ""
+
+        for i in range(minLen):
+            for j, s in enumerate(strs):
+                if j == 0:
+                    bfr = s[i]
+                else:
+                    bfr = "" if bfr != s[i] else s[i]
+            ans = ans + bfr[i]
+            Log.green(f"{ans}")
 
         return ""
 
