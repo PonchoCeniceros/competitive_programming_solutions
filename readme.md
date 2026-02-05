@@ -1,118 +1,78 @@
-# Competitive Programming Solutions
+# 🥋 The Coding Dojo: Algorithmic Katas
 
-This repository contains my personal solutions to various competitive programming problems. I use this space to track my progress, improve my algorithmic thinking, and maintain a clean collection of implementations.
+Este repositorio es mi espacio personal de entrenamiento. Aquí no solo resuelvo problemas, sino que practico la **maestría del código** a través de *Katas*: ejercicios diseñados para perfeccionar la lógica, la sintaxis y el pensamiento algorítmico mediante la repetición y el refinamiento.
 
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)![LeetCode](https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black)
-
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
+![LeetCode](https://img.shields.io/badge/-LeetCode-FFA116?style=for-the-badge&logo=LeetCode&logoColor=black)
 ---
 
-## 📂 Project Structure
+## 📂 Estructura del Dojo
 
-All solutions are stored in the `codes/` directory with a simplified naming convention using only the problem ID.
-```
+He organizado el entorno para que sea minimalista y eficiente. Cada ejercicio (Kata) reside en la carpeta `katas/`, identificada por su ID de LeetCode.
+
+```text
 .
-├── codes/                # Current Python solution files (pytest format)
+├── katas/                # El corazón del dojo (Python + Pytest)
 │   ├── 1.py              # Two Sum
 │   ├── 20.py             # Valid Parentheses
 │   ├── 26.py             # Remove Duplicates from Sorted Array
 │   ├── 28.py             # Find the Index of the First Occurrence in a String
 │   ├── 70.py             # Climbing Stairs
 │   └── ...
-├── utils/                # Utilities
-├── create.sh             # Automation script for creating new exercises
-└── README.md             # Documentation
+├── utils/                # Utilidades de apoyo (Loggers, etc.)
+├── create.sh             # El "Sensei": automatización de Katas
+└── README.md             # El manifiesto del Dojo
 ```
 
 ---
 
-## 🧪 Testing Framework
+## 🧪 Laboratorio de Pruebas (Testing)
 
-All solutions use **pytest** with parametrized tests for comprehensive testing:
+En este Dojo, una solución solo se considera "dominada" cuando supera todos los casos de prueba de forma elegante.
 
+### 🐍 Python con Pytest
+Utilizo tests parametrizados para una validación exhaustiva:
 ```python
-# Unit tests
-
-@pytest.mark.parametrize(
-    "input_params, expected_output",
-    [
-        (input1, expected1),
-        (input2, expected2),
-        (input3, expected3),
-    ],
-)
-def test_solution_function(input_params, expected_output):
-    sol = Solution()
-    assert sol.method(input_params) == expected_output
+@pytest.mark.parametrize("input, expected", [
+    (["flower","flow","flight"], "fl"),
+    (["dog","racecar","car"], ""),
+])
+def test_solution(input, expected):
+    assert Solution().longestCommonPrefix(input) == expected
 ```
 
-### Running Tests
+---
+
+## 🛠️ El "Sensei" (Automatización)
+
+Para mantener el enfoque en la lógica y no en la configuración, utilizo un script en Bash para generar el *boilerplate* de mis Katas.
+
+### Uso:
+1. **Permisos de ejecución:** `chmod +x create.sh`
+2. **Generar nueva Kata:**
 
 ```bash
-# Run all tests
-pytest codes/
-
-# Run specific test
-pytest codes/1.py
-
-# Run with verbose output
-pytest codes/ -v
+./sensei.sh -m "9. Palindrome Number"
+./sensei.sh -m "125 Valid Palindrome"
 ```
+
+3. **Ejecutar la Kata:**
+
+```bash
+./sensei.sh -m 9
+```
+
+El script genera esqueletos automáticos con:
+- ✅ **Estructura de tests** lista para completar.
+- ✅ **Logging estandarizado** con `utils.log`.
 
 ---
 
-## 🛠️ Automation
+## 🥋 Filosofía de Entrenamiento
 
-I use a Bash script to automate the creation of new solution files with the updated pytest template.
-
-### How to use it:
-
-1. Give execution permissions (only needed once):
-    ```bash
-    chmod +x create.sh
-    ```
-
-2. Generate a new exercise file (LeetCode format):
-    ```bash
-    ./create.sh "9. Palindrome Number"
-    ./create.sh "125 Valid Palindrome"
-    ```
-
-The script will automatically create a file inside `codes/` with the following boilerplate:
-```python
-import pytest
-from typing import List, Optional, Dict
-from utils.log import Log
-
-
-#
-# Exercise Problem Name
-#
-class Solution:
-    # [Implement your solution here]
-    ...
-
-
-# Unit tests
-
-
-@pytest.mark.parametrize(
-    # [Add your parameters here]
-    "",
-    [
-        # [Add your test cases here]
-    ],
-)
-def test_# [test_function_name](# [parameters]):
-    sol = Solution()
-    assert sol.# [method_name](# [arguments]) == # [expected]
-```
-
-### Features
-
-- ✅ **Modern pytest framework** with parametrized tests
-- ✅ **Type hints** for better code documentation
-- ✅ **Simplified naming** (e.g., `9.py` instead of `9_palindrome_number.py`)
-- ✅ **Full problem names** in exercise comments
-- ✅ **Standardized logging** with `utils.log`
+1. **Claridad sobre Velocidad:** El código debe ser legible antes que ingenioso.
+2. **Refactorización Continua:** Una Kata no termina al pasar el test, sino cuando el código es lo más simple posible.
 
 ---
+*“No temo al hombre que ha practicado 10,000 patadas una vez, sino al que ha practicado una patada 10,000 veces.”* – Bruce Lee
