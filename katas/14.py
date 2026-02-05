@@ -14,9 +14,22 @@ class Solution:
         lens = [len(arr) for arr in strs]
         minLen = min(lens)
 
-        Log.teal(f"{minLen}")
+        ans = ""
+        bfr = ""
 
-        return ""
+        for i in range(minLen):
+            for j, s in enumerate(strs):
+                # Log.teal(f"{j}, {i}, {s[i]}")
+                if j == 0:
+                    bfr = s[i]
+                else:
+                    bfr = "" if bfr != s[i] else s[i]
+                # Log.cyan(bfr)
+            if bfr == "":
+                return ans
+            ans = ans + bfr
+        # Log.blue(f"{ans}")
+        return ans
 
 
 # Unit tests
@@ -28,6 +41,7 @@ class Solution:
         (["flower", "flow", "flight"], "fl"),
         (["dog", "racecar", "car"], ""),
         ([], ""),
+        (["cir", "car"], "c"),
     ],
 )
 def test_Longest_Common_Prefix(strs, expected):
